@@ -18,26 +18,35 @@ export class LoginComponent {
     contra: ''
   };
 
+  errorMsg: string = '';
+  loading: boolean = false;
+
   constructor(
     private auth: AutenticacionService,
     private router: Router
   ) {}
 
   login() {
-    this.auth.login(this.loginData).subscribe((res: any) => {
+    this.errorMsg = '';
+    this.loading = true;
 
-   
-      localStorage.setItem('usuario', JSON.stringify(res));
+    this.auth.login(this.loginData).subscribe({
+      next: (res: any) => {
 
+        localStorage.setItem('usuario', JSON.stringify(res));
 
-      if (res.rol === 'administrador') {
-        this.router.navigate(['/admin']);
-      } else {
-        this.router.navigate(['/portada']);
+        if (res?.rol === 'administrador') {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/portada']);
+        }
+
+        this.loading = false;
+      },
+      error: () => {
+        this.errorMsg = 'Correo o contraseña incorrectos';
+        this.loading = false;
       }
-
-    }, error => {
-      alert('Correo o contraseña incorrectos');
     });
   }
 }

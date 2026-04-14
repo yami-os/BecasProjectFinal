@@ -1,31 +1,38 @@
-<div class="container" style="max-width: 400px; margin-top: 100px;">
+<div class="login-container">
 
-  <h2 class="text-center mb-4">Iniciar Sesión</h2>
+  <div class="login-card">
+    <h2>Iniciar Sesión</h2>
 
-  <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()">
 
-    <input 
-      type="email"
-      [(ngModel)]="loginData.correo"
-      name="correo"
-      placeholder="Correo"
-      class="form-control mb-3"
-      required
-    >
+      <input 
+        type="email"
+        [(ngModel)]="loginData.correo"
+        name="correo"
+        placeholder="Correo"
+        class="form-control"
+        required
+      >
 
-    <input 
-      type="password"
-      [(ngModel)]="loginData.contra"
-      name="contra"
-      placeholder="Contraseña"
-      class="form-control mb-3"
-      required
-    >
+      <input 
+        type="password"
+        [(ngModel)]="loginData.contra"
+        name="contra"
+        placeholder="Contraseña"
+        class="form-control"
+        required
+      >
 
-    <button type="submit" class="btn btn-primary w-100">
-      Iniciar Sesión
-    </button>
+    
+      <p class="error" *ngIf="errorMsg">
+        {{ errorMsg }}
+      </p>
 
-  </form>
+      <button type="submit" class="btn-login" [disabled]="loading">
+        {{ loading ? 'Ingresando...' : 'Iniciar Sesión' }}
+      </button>
+
+    </form>
+  </div>
 
 </div>

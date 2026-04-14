@@ -1,37 +1,48 @@
-<nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
-  <div class="container">
+<nav class="navbar">
 
-    <a class="navbar-brand fw-bold text-primary" routerLink="/portada">
-       UTSBECAS
+  <!-- Logo -->
+  <div class="logo">🎓 UTS Becas</div>
+
+  <!-- Links -->
+  <div class="nav-links">
+
+    <a routerLink="/portada">Inicio</a>
+
+    <a *ngIf="usuario" routerLink="/solicitar">
+      Solicitar beca
     </a>
-    <div class="collapse navbar-collapse justify-content-center">
-      <ul class="navbar-nav" *ngIf="usuario">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/portada">Inicio</a>
-        </li>
-        <li class="nav-item" *ngIf="usuario && usuario.rol === 'administrador'">
-          <a class="nav-link" routerLink="/admin">Admin</a>
-        </li>
-        <li class="nav-item" *ngIf="usuario && usuario.rol === 'estudiante'">
-          <a class="nav-link" routerLink="/solicitudes">Solicitudes</a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <ng-container *ngIf="!usuario">
-        <button class="btn btn-outline-dark me-2" routerLink="/login">
-          Iniciar sesión
-        </button>
-        <button class="btn btn-primary" routerLink="/registro">
-          Registro
-        </button>
-      </ng-container>
-      <ng-container *ngIf="usuario">
-        <span class="me-2 fw-bold">{{ usuario.correo }}</span>
-        <button class="btn btn-danger" (click)="logout()">
-          Cerrar sesión
-        </button>
-      </ng-container>
-    </div>
+
+    <a *ngIf="usuario" routerLink="/mis-solicitudes">
+      Mis solicitudes
+    </a>
+
   </div>
+
+  <!-- Acciones -->
+  <div class="nav-actions">
+
+    <!-- SIN sesión -->
+    <ng-container *ngIf="!usuario">
+      <button routerLink="/login" class="btn login">
+        Login
+      </button>
+
+      <button routerLink="/registro" class="btn register">
+        Registro
+      </button>
+    </ng-container>
+
+    <!-- CON sesión -->
+    <ng-container *ngIf="usuario">
+      <span class="user-name">
+        👤 {{ usuario.nombre || 'Usuario' }}
+      </span>
+
+      <button (click)="logout()" class="btn logout">
+        Cerrar sesión
+      </button>
+    </ng-container>
+
+  </div>
+
 </nav>

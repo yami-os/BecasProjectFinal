@@ -7,8 +7,10 @@ import { AutenticacionService } from '../../services/autenticacion.service';
   selector: 'app-registro',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './registro.html'
+  templateUrl: './registro.html',   
+  styleUrls: ['./registro.css']
 })
+
 export class RegistroComponent {
 
   registro = {

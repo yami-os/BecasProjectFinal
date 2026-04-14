@@ -1,56 +1,76 @@
+
 .registro-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #63112b, #8c1d40);
+  background: linear-gradient(135deg, #ffffff, #ffffff);
+  font-family: 'Poppins', sans-serif;
 }
 
 .registro-card {
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 20px;
   width: 100%;
-  max-width: 400px;
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(128, 0, 32, 0.25);
   text-align: center;
+  animation: fadeIn 0.7s ease;
 }
 
+
 .registro-card h2 {
-  color: #63112b;
-  margin-bottom: 20px;
-  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #800020;
+  font-weight: 600;
 }
 
 .form-control {
-  margin-bottom: 15px;
-  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 14px;
+  border-radius: 12px;
   border: 1px solid #ddd;
-  padding: 10px;
-  transition: 0.3s;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
+
 .form-control:focus {
-  border-color: #63112b;
-  box-shadow: 0 0 5px rgba(99, 17, 43, 0.3);
+  border-color: #800020;
+  box-shadow: 0 0 10px rgba(128, 0, 32, 0.3);
+  outline: none;
 }
+
 
 .btn-registro {
   width: 100%;
-  background-color: #63112b;
-  color: white;
+  padding: 14px;
   border: none;
-  border-radius: 25px;
-  padding: 10px;
-  font-weight: bold;
-  transition: 0.3s;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #800020, #5c0017);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-registro:hover {
-  background-color: #4b0d20;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(128, 0, 32, 0.4);
 }
 
-.registro-card:hover {
-  transform: translateY(-5px);
-  transition: 0.3s;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

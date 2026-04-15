@@ -1,0 +1,30 @@
+<div class="container">
+
+  <h2 class="title">Estudiantes</h2>
+
+  <table>
+
+    <tr>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Carrera</th>
+      <th>Acciones</th>
+    </tr>
+
+    <tr *ngFor="let item of lista">
+
+      <td>{{ item.est_Nombre }}</td>
+      <td>{{ item.est_Correo }}</td>
+      <td>{{ item.est_Carrera }}</td>
+
+      <td>
+        <button class="btn btn-delete" (click)="eliminar(item.est_Id)">
+          Eliminar
+        </button>
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>

@@ -1,46 +1,34 @@
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
   background: white;
-  border-bottom: 3px solid #800020; /* guinda */
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+  padding: 15px 50px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-/* Logo */
 .logo {
   font-size: 22px;
   font-weight: bold;
   color: #800020;
 }
 
-/* Links */
-.nav-links {
-  display: flex;
-  gap: 25px;
-}
-
 .nav-links a {
+  margin: 0 15px;
   text-decoration: none;
-  color: #333;
+  color: #444;
   font-weight: 500;
   position: relative;
 }
 
-/* efecto hover */
 .nav-links a::after {
   content: '';
-  position: absolute;
-  width: 0%;
+  width: 0;
   height: 2px;
   background: #800020;
-  left: 0;
+  position: absolute;
   bottom: -5px;
+  left: 0;
   transition: 0.3s;
 }
 
@@ -48,57 +36,26 @@
   width: 100%;
 }
 
-/* Acciones */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Botones */
 .btn {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s;
+  border: none;
+  font-weight: 500;
 }
 
-/* Login */
-.btn.login {
+.login {
+  border: 2px solid #800020;
   background: transparent;
-  border: 1px solid #800020;
   color: #800020;
 }
 
-.btn.login:hover {
+.register, .logout {
   background: #800020;
   color: white;
 }
 
-/* Registro */
-.btn.register {
-  background: #800020;
-  color: white;
-}
-
-.btn.register:hover {
-  background: #5c0017;
-}
-
-/* Logout */
-.btn.logout {
-  background: #333;
-  color: white;
-}
-
-.btn.logout:hover {
-  background: black;
-}
-
-/* Usuario */
 .user-name {
-  font-weight: bold;
-  color: #800020;
+  margin-right: 10px;
+  font-weight: 500;
 }

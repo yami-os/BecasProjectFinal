@@ -1,0 +1,21 @@
+.container {
+  padding: 40px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,42 @@
+.detalle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+  color: #6a1b4d;
+  margin-bottom: 10px;
+}
+
+.fecha {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+.btn-regresar {
+  background: #6a1b4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-regresar:hover {
+  background: #8e244d;
+}

@@ -1,30 +1,67 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login';
-import { RegistroComponent } from './pages/registro/registro';
-import { PortadaComponent } from './pages/portada/portada';
 
 export const routes: Routes = [
 
-
   { path: '', redirectTo: 'portada', pathMatch: 'full' },
 
-
-  { path: 'portada', component: PortadaComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
-
-
   {
-    path: 'admin',
-    loadComponent: () => import('./pages/administrador/administrador')
-      .then(m => m.AdministradorComponent)
+    path: 'portada',
+    loadComponent: () => import('./pages/portada/portada')
+      .then(m => m.PortadaComponent)
   },
 
   {
-    path: 'solicitudes',
-    loadComponent: () => import('./pages/solicitud/solicitud')
-      .then(m => m.SolicitudComponent)
+    path: 'login',
+    loadComponent: () => import('./pages/login/login')
+      .then(m => m.LoginComponent)
   },
 
-  { path: '**', redirectTo: 'portada' }
+  {
+    path: 'registro',
+    loadComponent: () => import('./pages/registro/registro')
+      .then(m => m.RegistroComponent)
+  },
+
+  {
+    path: 'convocatorias',
+    loadComponent: () => import('./pages/estudiante/convocatoria/convocatoria')
+      .then(m => m.ConvocatoriasComponent)
+  },
+
+  {
+    path: 'mis-solicitudes',
+    loadComponent: () => import('./pages/estudiante/mis-solicitudes/mis-solicitudes')
+      .then(m => m.MiSolicitudesComponent)
+  },
+
+  {
+    path: 'detalle',
+    loadComponent: () => import('./pages/estudiante/detalle/detalle')
+      .then(m => m.DetalleComponent)
+  },
+
+  {
+    path: 'admin/convocatorias',
+    loadComponent: () => import('./pages/admin/convocatorias/convocatorias')
+      .then(m => m.AdminConvocatoriasComponent)
+  },
+
+  {
+    path: 'admin/estudiantes',
+    loadComponent: () => import('./pages/admin/estudiantes/estudiantes')
+      .then(m => m.EstudiantesComponent)
+  },
+
+  {
+    path: 'admin/solicitudes',
+    loadComponent: () => import('./pages/admin/solicitudes/solicitudes')
+      .then(m => m.SolicitudesComponent)
+  },
+
+  {
+    path: 'admin/reportes',
+    loadComponent: () => import('./pages/admin/reportes/reportes')
+      .then(m => m.ReportesComponent)
+  }
+
 ];

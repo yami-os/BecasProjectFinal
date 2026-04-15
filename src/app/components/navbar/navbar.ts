@@ -8,20 +8,23 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'] 
-
 })
 export class NavbarComponent implements OnInit {
 
   usuario: any = null;
+  esAdmin: boolean = false; 
 
   ngOnInit(): void {
     const user = localStorage.getItem('usuario');
-    this.usuario = user ? JSON.parse(user) : null;
+
+    if (user) {
+      this.usuario = JSON.parse(user);
+      this.esAdmin = this.usuario?.rol === 'administrador';
+    }
   }
 
   logout() {
     localStorage.removeItem('usuario');
-    this.usuario = null;
     window.location.href = '/login';
   }
 }

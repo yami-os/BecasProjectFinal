@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h2>Mis solicitudes</h2>
+
+  <table>
+    <tr>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Comentarios</th>
+    </tr>
+
+    <tr *ngFor="let s of solicitudes">
+      <td>{{ s.estado }}</td>
+      <td>{{ s.fecha | date }}</td>
+      <td>{{ s.comentarios }}</td>
+    </tr>
+  </table>
+
+</div>

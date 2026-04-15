@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h2>Reportes</h2>
+
+  <table>
+
+    <tr>
+      <th>ID</th>
+      <th>Estudiante</th>
+      <th>Estado</th>
+    </tr>
+
+    <tr *ngFor="let item of lista">
+
+      <td>{{ item.id }}</td>
+      <td>{{ item.estudiante }}</td>
+      <td>{{ item.estado }}</td>
+
+    </tr>
+
+  </table>
+
+</div>

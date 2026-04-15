@@ -1,46 +1,35 @@
 <nav class="navbar">
 
-  <!-- Logo -->
-  <div class="logo">🎓 UTS Becas</div>
+  <div class="logo">UTS Becas</div>
 
-  <!-- Links -->
   <div class="nav-links">
 
     <a routerLink="/portada">Inicio</a>
 
-    <a *ngIf="usuario" routerLink="/solicitar">
-      Solicitar beca
-    </a>
+    <ng-container *ngIf="usuario && !esAdmin">
+      <a routerLink="/convocatorias">Convocatorias</a>
+      <a routerLink="/mis-solicitudes">Mis solicitudes</a>
+    </ng-container>
 
-    <a *ngIf="usuario" routerLink="/mis-solicitudes">
-      Mis solicitudes
-    </a>
+    <ng-container *ngIf="usuario && esAdmin">
+      <a routerLink="/admin/convocatorias">Convocatorias</a>
+      <a routerLink="/admin/estudiantes">Estudiantes</a>
+      <a routerLink="/admin/solicitudes">Solicitudes</a>
+      <a routerLink="/admin/reportes">Reportes</a>
+    </ng-container>
 
   </div>
 
-  <!-- Acciones -->
   <div class="nav-actions">
 
-    <!-- SIN sesión -->
     <ng-container *ngIf="!usuario">
-      <button routerLink="/login" class="btn login">
-        Login
-      </button>
-
-      <button routerLink="/registro" class="btn register">
-        Registro
-      </button>
+      <button routerLink="/login" class="btn login">Login</button>
+      <button routerLink="/registro" class="btn register">Registro</button>
     </ng-container>
 
-    <!-- CON sesión -->
     <ng-container *ngIf="usuario">
-      <span class="user-name">
-        👤 {{ usuario.nombre || 'Usuario' }}
-      </span>
-
-      <button (click)="logout()" class="btn logout">
-        Cerrar sesión
-      </button>
+      <span class="user-name"> {{ usuario.nombre }}</span>
+      <button (click)="logout()" class="btn logout">Cerrar sesión</button>
     </ng-container>
 
   </div>

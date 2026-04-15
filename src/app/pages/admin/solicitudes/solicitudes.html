@@ -1,0 +1,34 @@
+<div class="container">
+
+  <h2 class="title">Solicitudes</h2>
+
+  <table>
+
+    <tr>
+      <th>Correo</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+
+    <tr *ngFor="let s of lista">
+
+      <td>{{ s.sol_CorreoEst }}</td>
+      <td>{{ s.sol_Estado }}</td>
+
+      <td>
+
+        <button class="btn btn-edit" (click)="aprobar(s)">
+          Aprobar
+        </button>
+
+        <button class="btn btn-delete" (click)="rechazar(s)">
+          Rechazar
+        </button>
+
+      </td>
+
+    </tr>
+
+  </table>
+
+</div>

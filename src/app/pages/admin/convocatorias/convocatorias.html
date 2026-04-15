@@ -1,0 +1,26 @@
+<div class="admin">
+
+  <h2>Administrar Convocatorias</h2>
+
+  <input [(ngModel)]="nueva.con_Tipo" placeholder="Tipo">
+  <input [(ngModel)]="nueva.con_Fecha" type="date">
+
+  <button (click)="agregar()">Agregar</button>
+
+  <table>
+    <tr>
+      <th>Tipo</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+
+    <tr *ngFor="let c of lista; let i = index">
+      <td>{{ c.con_Tipo }}</td>
+      <td>{{ c.con_Fecha | date }}</td>
+      <td>
+        <button (click)="eliminar(i)">Eliminar</button>
+      </td>
+    </tr>
+  </table>
+
+</div>

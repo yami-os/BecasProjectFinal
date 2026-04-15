@@ -1,29 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SolicitudModel } from '../models/solicitud';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SolicitudService {
 
-  private url = 'https://localhost:7282/api/Solicitud';
+  private url = 'http://localhost:7282/Dolicitudes';
 
   constructor(private http: HttpClient) {}
 
-getAll() {
-  return this.http.get<SolicitudModel[]>(this.url);
-}
-
-  insert(data: any) {
-    return this.http.post(this.url, data);
+  getAll() {
+    return this.http.get<any>(this.url);
   }
 
-  update(id: number, data: SolicitudModel) {
-  return this.http.put(`${this.url}/${id}`, data);
-}
+  getReporte() {
+    return this.http.get<any>(this.url); 
+  }
+
+  update(solicitud: any) {
+    return this.http.put<any>(`${this.url}/${solicitud.sol_Id}`, solicitud);
+  }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    return this.http.delete<any>(`${this.url}/${id}`);
   }
 }

@@ -17,3 +17,23 @@ body {
 .main-content {
   margin-top: 80px;
 }
+
+.admin {
+  padding: 40px;
+}
+
+input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+r
+button {
+  background: #800020;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+}

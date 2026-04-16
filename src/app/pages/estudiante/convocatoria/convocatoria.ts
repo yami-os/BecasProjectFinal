@@ -13,7 +13,9 @@ export class ConvocatoriasComponent {
 
   lista = [
     { id: 1, tipo: 'Beca Académica', fecha: '2025-01-10' },
-    { id: 2, tipo: 'Beca Transporte', fecha: '2025-02-05' }
+    { id: 2, tipo: 'Beca Transporte', fecha: '2025-02-05' },
+    { id: 3, tipo: 'Beca Alimenticia', fecha: '2025-02-05' }
+
   ];
 
 }

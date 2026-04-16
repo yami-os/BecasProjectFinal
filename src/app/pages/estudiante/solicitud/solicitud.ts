@@ -16,7 +16,6 @@ export class SolicitudComponent implements OnInit {
   idConvocatoria: number = 0;
 
   solicitud = {
-    Sol_Fecha: new Date(),
     Sol_Estado: 'Pendiente',
     Sol_Comentarios: '',
     Sol_CorreoEst: '',
@@ -35,14 +34,12 @@ export class SolicitudComponent implements OnInit {
   }
 
   guardarSolicitud(): void {
-    this.solicitud.Sol_Fecha = new Date();
 
     this.solicitudService.insert(this.solicitud).subscribe({
       next: () => {
         alert('Solicitud enviada correctamente');
 
         this.solicitud = {
-          Sol_Fecha: new Date(),
           Sol_Estado: 'Pendiente',
           Sol_Comentarios: '',
           Sol_CorreoEst: '',

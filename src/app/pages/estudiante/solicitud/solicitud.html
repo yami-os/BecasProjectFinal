@@ -3,16 +3,16 @@
   <h2>Solicitud de Beca</h2>
 
   <label>Correo:</label>
-  <input [(ngModel)]="solicitud.correo" type="email" placeholder="Ingresa tu correo">
+  <input [(ngModel)]="solicitud.Sol_CorreoEst" type="email" placeholder="Ingresa tu correo">
 
   <label>Contraseña:</label>
-  <input [(ngModel)]="solicitud.contrasena" type="password" placeholder="Ingresa tu contraseña">
+  <input [(ngModel)]="solicitud.Sol_CrearContra" type="password" placeholder="Ingresa tu contraseña">
 
   <label>Teléfono:</label>
-  <input [(ngModel)]="solicitud.telefono" type="text" placeholder="Ingresa tu teléfono">
+  <input [(ngModel)]="solicitud.Sol_Telefono" type="text" placeholder="Ingresa tu teléfono">
 
   <label>Dirección:</label>
-  <input [(ngModel)]="solicitud.direccion" type="text" placeholder="Ingresa tu dirección">
+  <input [(ngModel)]="solicitud.Sol_Direccion" type="text" placeholder="Ingresa tu dirección">
 
   <button (click)="guardarSolicitud()">Enviar Solicitud</button>
 

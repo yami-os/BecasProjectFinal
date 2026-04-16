@@ -16,11 +16,13 @@ export class SolicitudComponent implements OnInit {
   idConvocatoria: number = 0;
 
   solicitud = {
-    correo: '',
-    contrasena: '',
-    telefono: '',
-    direccion: '',
-    convocatoriaId: 0
+    Sol_Fecha: new Date(),
+    Sol_Estado: 'Pendiente',
+    Sol_Comentarios: '',
+    Sol_CorreoEst: '',
+    Sol_CrearContra: '',
+    Sol_Telefono: '',
+    Sol_Direccion: ''
   };
 
   constructor(
@@ -33,23 +35,25 @@ export class SolicitudComponent implements OnInit {
   }
 
   guardarSolicitud(): void {
-    this.solicitud.convocatoriaId = this.idConvocatoria;
+    this.solicitud.Sol_Fecha = new Date();
 
     this.solicitudService.insert(this.solicitud).subscribe({
       next: () => {
         alert('Solicitud enviada correctamente');
 
         this.solicitud = {
-          correo: '',
-          contrasena: '',
-          telefono: '',
-          direccion: '',
-          convocatoriaId: 0
+          Sol_Fecha: new Date(),
+          Sol_Estado: 'Pendiente',
+          Sol_Comentarios: '',
+          Sol_CorreoEst: '',
+          Sol_CrearContra: '',
+          Sol_Telefono: '',
+          Sol_Direccion: ''
         };
       },
       error: (err: any) => {
         console.error('Error al guardar solicitud', err);
-        alert('Error al enviar la solicitud: ' + JSON.stringify(err));
+        alert('Error al enviar la solicitud');
       }
     });
   }

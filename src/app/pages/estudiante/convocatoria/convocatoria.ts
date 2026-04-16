@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-convocatorias',
@@ -17,5 +18,13 @@ export class ConvocatoriasComponent {
     { id: 3, tipo: 'Beca Alimenticia', fecha: '2025-02-05' }
 
   ];
+
+  constructor(private route: ActivatedRoute) {}
+
+  idConvocatoria: number = 0;
+
+ngOnInit(): void {
+  this.idConvocatoria = Number(this.route.snapshot.paramMap.get('id'));
+}
 
 }

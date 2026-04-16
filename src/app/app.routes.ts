@@ -35,7 +35,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'detalle',
+    path: 'detalle/:id',
     loadComponent: () => import('./pages/estudiante/detalle/detalle')
       .then(m => m.DetalleComponent)
   },
@@ -62,6 +62,17 @@ export const routes: Routes = [
     path: 'admin/reportes',
     loadComponent: () => import('./pages/admin/reportes/reportes')
       .then(m => m.ReportesComponent)
+  },
+
+ {
+  path: 'solicitud/:id',
+  loadComponent: () => import('./pages/estudiante/solicitud/solicitud')
+    .then(m => m.SolicitudComponent)
+  },
+
+  {
+    path: '**',
+    redirectTo: 'portada'
   }
 
 ];

@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SolicitudService {
 
-  private url = 'http://localhost:7282/Dolicitudes';
+  private url = 'https://localhost:7282/Solicitudes';
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +16,10 @@ export class SolicitudService {
 
   getReporte() {
     return this.http.get<any>(this.url); 
+  }
+
+  insert(solicitud: any) {
+    return this.http.post<any>(this.url, solicitud);
   }
 
   update(solicitud: any) {

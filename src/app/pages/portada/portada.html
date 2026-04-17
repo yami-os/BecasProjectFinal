@@ -1,59 +1,73 @@
 <div class="home">
   <section class="hero">
     <div class="hero-content">
-      <h1>Encuentra y solicita becas fácilmente 🎓</h1>
+      <h1>Encuentra y solicita becas fácilmente </h1>
       <p>Accede a oportunidades que pueden cambiar tu futuro</p>
-      <button class="btn-main" routerLink="/solicitudes">
+
+      <button class="btn-main" routerLink="/convocatorias">
         Ver convocatorias
       </button>
     </div>
   </section>
+
   <section class="becas">
     <h2>Convocatorias Disponibles</h2>
+
     <div class="cards">
       <div class="card" *ngFor="let beca of becas">
         <h3>{{ beca.nombre }}</h3>
         <p>{{ beca.descripcion }}</p>
+
         <span class="fecha">
           Fecha límite: {{ beca.fechaLimite | date }}
         </span>
-        <button class="btn-card">
+
+        <button class="btn-card" routerLink="/detalle">
           Solicitar
         </button>
       </div>
     </div>
   </section>
+
   <section *ngIf="usuario?.rol === 'estudiante'" class="mis-solicitudes">
     <h2>Mis Solicitudes</h2>
+
     <div class="cards">
       <div class="card" *ngFor="let s of solicitudes">
         <h3>{{ s.becaNombre }}</h3>
+
         <p class="estado" [ngClass]="s.estado">
           {{ s.estado }}
         </p>
       </div>
     </div>
   </section>
+
   <section *ngIf="usuario?.rol === 'administrador'" class="admin-panel">
     <h2>Panel de Administrador</h2>
+
     <div class="admin-actions">
-      <button class="btn-main" routerLink="/admin">
+      <button class="btn-main" routerLink="/admin/convocatorias">
         Gestionar Becas
       </button>
-      <button class="btn-secondary">
+
+      <button class="btn-secondary" routerLink="/admin/solicitudes">
         Ver Solicitudes
       </button>
     </div>
   </section>
+
   <section class="stats">
     <div class="stat">
       <h3>+100</h3>
       <p>Becas disponibles</p>
     </div>
+
     <div class="stat">
       <h3>+500</h3>
       <p>Estudiantes beneficiados</p>
     </div>
+
     <div class="stat">
       <h3>+20</h3>
       <p>Instituciones</p>

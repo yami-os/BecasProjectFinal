@@ -1,22 +1,12 @@
-<div class="detalle-container" *ngIf="convocatoria">
+<div class="detalle-container">
+  <div class="detalle-card">
+    <h3>Fecha:</h3>
 
-  <div class="card">
+    <p>Esta convocatoria está disponible para estudiantes.</p>
+    <p>Revisa los requisitos y solicita tu beca.</p>
 
-    <h2>{{ convocatoria.con_Tipo }}</h2>
-
-    <p class="fecha">
-      Fecha: {{ convocatoria.con_Fecha | date }}
-    </p>
-
-    <div class="info">
-      <p>Esta convocatoria está disponible para estudiantes.</p>
-      <p>Revisa los requisitos y solicita tu beca.</p>
-    </div>
-
-    <button routerLink="/convocatorias" class="btn-regresar">
+    <button class="btn-regresar" routerLink="/portada">
       Regresar
     </button>
-
   </div>
-
 </div>

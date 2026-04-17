@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './detalle.html',
-  styleUrls: ['./detalle.css']
+  styleUrl: './detalle.css'
 })
 export class DetalleComponent {
 
-  convocatoria: any;
-
-  constructor(private route: ActivatedRoute) {
-    this.convocatoria = history.state;
-  }
 }

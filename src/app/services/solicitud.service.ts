@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SolicitudService {
-
   private url = 'https://localhost:7282/api/Solicitud';
 
   constructor(private http: HttpClient) {}

@@ -17,8 +17,8 @@ export class ConvocatoriaService {
 }
 
   insert(data: any) {
-    return this.http.post(this.url, data);
-  }
+  return this.http.post('https://localhost:7282/api/convocatoria', data);
+}
 
  
 update(id: number, data: ConvocatoriaModel) {

@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-estudiantes',
-  imports: [CommonModule, FormsModule], 
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './estudiantes.html',
   styleUrls: ['./estudiantes.css']
 })
@@ -25,26 +26,27 @@ export class EstudiantesComponent implements OnInit {
     this.cargar();
   }
 
-  cargar() {
+  cargar(): void {
     this.service.getAll().subscribe((res: any) => {
       this.lista = res.data || res;
     });
   }
 
- 
-  guardar() {
+  guardar(): void {
 
-    if (!this.nuevo.est_Nombre || !this.nuevo.est_Correo) {
+    if (
+      !this.nuevo.est_Nombre ||
+      !this.nuevo.est_Correo ||
+      !this.nuevo.est_Carrera
+    ) {
       alert('Completa los campos');
       return;
     }
 
     this.service.insert(this.nuevo).subscribe((res: any) => {
 
-    
       this.lista.unshift(res);
 
-      
       this.nuevo = {
         est_Nombre: '',
         est_Correo: '',
@@ -53,7 +55,6 @@ export class EstudiantesComponent implements OnInit {
 
     });
   }
-
 
   eliminar(id: number): void {
     this.service.delete(id).subscribe(() => {

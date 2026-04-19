@@ -3,10 +3,18 @@
   <h2>Convocatorias</h2>
 
   <div class="cards">
-<div class="card" *ngFor="let c of lista" [routerLink]="['/solicitud', c.id]">
-        <h3>{{ c.tipo }}</h3>
-      <p>{{ c.fecha | date }}</p>
+
+    <div
+      class="card"
+      *ngFor="let c of lista"
+      [routerLink]="['/solicitud', c.con_Id]">
+
+      <h3>{{ c.con_Tipo }}</h3>
+
+      <p>{{ c.con_Fecha | date:'mediumDate' }}</p>
+
     </div>
+
   </div>
 
 </div>

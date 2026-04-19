@@ -3,17 +3,29 @@
   <h2>Mis solicitudes</h2>
 
   <table>
-    <tr>
-      <th>Estado</th>
-      <th>Fecha</th>
-      <th>Comentarios</th>
-    </tr>
 
-    <tr *ngFor="let s of solicitudes">
-      <td>{{ s.sol_Estado }}</td>
-      <!-- <td>{{ s.fecha | date }}</td> -->
-      <td>{{ s.sol_Comentarios }}</td>
-    </tr>
+    <thead>
+      <tr>
+        <th>Estado</th>
+        <th>Tipo</th>
+        <th>Comentarios</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let item of solicitudes">
+        <td>{{ item.sol_Estado }}</td>
+        <td>{{ item.con_Tipo }}</td>
+        <td>{{ item.sol_Comentarios }}</td>
+      </tr>
+
+      <tr *ngIf="solicitudes.length === 0">
+        <td colspan="3">No tienes solicitudes registradas</td>
+      </tr>
+
+    </tbody>
+
   </table>
 
 </div>

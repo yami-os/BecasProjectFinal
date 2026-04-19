@@ -2,25 +2,49 @@
 
   <h2>Administrar Convocatorias</h2>
 
-  <input [(ngModel)]="nueva.con_Tipo" placeholder="Tipo">
-  <input [(ngModel)]="nueva.con_Fecha" type="date">
+  <input
+    type="text"
+    [(ngModel)]="nueva.con_Tipo"
+    placeholder="Tipo de convocatoria"
+  >
 
-  <button (click)="agregar()">Agregar</button>
+  <input
+    type="date"
+    [(ngModel)]="nueva.con_Fecha"
+  >
+
+  <button type="button" (click)="agregar()">
+    Agregar
+  </button>
 
   <table>
-    <tr>
-      <th>Tipo</th>
-      <th>Fecha</th>
-      <th>Acciones</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
 
-    <tr *ngFor="let c of lista; let i = index">
-      <td>{{ c.con_Tipo }}</td>
-      <td>{{ c.con_Fecha | date }}</td>
-      <td>
-        <button (click)="eliminar(i)">Eliminar</button>
-      </td>
-    </tr>
+    <tbody>
+      <tr *ngFor="let c of lista; let i = index">
+        <td>{{ c.con_Tipo }}</td>
+        <td>{{ c.con_Fecha | date:'yyyy-MM-dd' }}</td>
+        <td>
+          <button
+            type="button"
+            (click)="eliminar(c.con_Id || i)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+
+      <tr *ngIf="lista.length === 0">
+        <td colspan="3">
+          No hay convocatorias registradas
+        </td>
+      </tr>
+    </tbody>
   </table>
 
 </div>

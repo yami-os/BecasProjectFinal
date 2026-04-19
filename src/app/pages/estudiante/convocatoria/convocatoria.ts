@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ConvocatoriaService } from '../../../services/convocatoria.service';
 
 @Component({
   selector: 'app-convocatorias',
@@ -10,21 +10,19 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './convocatoria.html',
   styleUrls: ['./convocatoria.css']
 })
-export class ConvocatoriasComponent {
+export class ConvocatoriasComponent implements OnInit {
 
-  lista = [
-    { id: 1, tipo: 'Beca Académica', fecha: '2025-01-10' },
-    { id: 2, tipo: 'Beca Transporte', fecha: '2025-02-05' },
-    { id: 3, tipo: 'Beca Alimenticia', fecha: '2025-02-05' }
+  lista: any[] = [];
 
-  ];
+  constructor(private service: ConvocatoriaService) {}
 
-  constructor(private route: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.cargar();
+  }
 
-  idConvocatoria: number = 0;
-
-ngOnInit(): void {
-  this.idConvocatoria = Number(this.route.snapshot.paramMap.get('id'));
-}
-
+  cargar(): void {
+    this.service.getAll().subscribe((res: any) => {
+      this.lista = res.data || res;
+    });
+  }
 }

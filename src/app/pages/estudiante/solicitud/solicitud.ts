@@ -15,13 +15,14 @@ export class SolicitudComponent implements OnInit {
 
   idConvocatoria: number = 0;
 
-  solicitud = {
+  solicitud: any = {
     Sol_Estado: 'Pendiente',
     Sol_Comentarios: '',
     Sol_CorreoEst: '',
     Sol_CrearContra: '',
     Sol_Telefono: '',
-    Sol_Direccion: ''
+    Sol_Direccion: '',
+    Con_Id: 0
   };
 
   constructor(
@@ -30,13 +31,19 @@ export class SolicitudComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.idConvocatoria = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.idConvocatoria = Number(
+      this.route.snapshot.paramMap.get('id')
+    );
+
+    this.solicitud.Con_Id = this.idConvocatoria;
   }
 
   guardarSolicitud(): void {
 
     this.solicitudService.insert(this.solicitud).subscribe({
       next: () => {
+
         alert('Solicitud enviada correctamente');
 
         this.solicitud = {
@@ -45,13 +52,16 @@ export class SolicitudComponent implements OnInit {
           Sol_CorreoEst: '',
           Sol_CrearContra: '',
           Sol_Telefono: '',
-          Sol_Direccion: ''
+          Sol_Direccion: '',
+          Con_Id: this.idConvocatoria
         };
+
       },
       error: (err: any) => {
-        console.error('Error al guardar solicitud', err);
-        alert('Error al enviar la solicitud');
+        console.error(err);
       }
     });
+
   }
+
 }

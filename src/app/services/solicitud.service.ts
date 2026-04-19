@@ -9,10 +9,9 @@ export class SolicitudService {
 
   constructor(private http: HttpClient) {}
 
-  getAll() {
-    return this.http.get<any>(this.url);
-  }
-
+  getAll(){
+  return this.http.get('https://localhost:7282/api/Solicitud');
+}
   getReporte() {
     return this.http.get<any>(this.url); 
   }

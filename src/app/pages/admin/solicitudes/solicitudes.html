@@ -1,33 +1,36 @@
 <div class="container">
 
-  <h2 class="title">Solicitudes</h2>
+  <h2>Solicitudes</h2>
 
   <table>
 
-    <tr>
-      <th>Correo</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Correo</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
 
-    <tr *ngFor="let s of lista">
+    <tbody>
 
-      <td>{{ s.sol_CorreoEst }}</td>
-      <td>{{ s.sol_Estado }}</td>
+      <tr *ngFor="let item of lista">
 
-      <td>
+        <td>{{ item.sol_CorreoEst }}</td>
 
-        <button class="btn btn-edit" (click)="aprobar(s)">
-          Aprobar
-        </button>
+        <td>{{ item.sol_Estado }}</td>
 
-        <button class="btn btn-delete" (click)="rechazar(s)">
-          Rechazar
-        </button>
+        <td>
+          Ver
+        </td>
 
-      </td>
+      </tr>
 
-    </tr>
+      <tr *ngIf="lista.length === 0">
+        <td colspan="3">No hay solicitudes</td>
+      </tr>
+
+    </tbody>
 
   </table>
 
